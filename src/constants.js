@@ -2,7 +2,7 @@ export const API_URL = 'https://onecompiler-apis.p.rapidapi.com/api/v1/run';
 export const OPTIONS = {
   method: 'POST',
   headers: {
-    'x-rapidapi-key': import.meta.env.API_KEY,
+    'x-rapidapi-key': import.meta.env.VITE_APP_URL,
     'x-rapidapi-host': 'onecompiler-apis.p.rapidapi.com',
     'Content-Type': 'application/json',
   },

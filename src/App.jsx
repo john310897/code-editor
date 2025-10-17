@@ -13,7 +13,8 @@ function App() {
   };
 
   const handleRun = async () => {
-    const tempOptions = OPTIONS;
+    setOutput(null)
+    const tempOptions = { ...OPTIONS };
     tempOptions.body.files = [
       {
         name: 'index.py',
@@ -25,7 +26,7 @@ function App() {
       resp?.json()
     );
     console.log(response);
-    setOutput(response?.stdout);
+    setOutput(response?.stdout?.replaceAll('\n', '<br/>'));
   };
   return (
     <>
@@ -38,10 +39,10 @@ function App() {
             onChange={handleChange}
           />
         </div>
-        <div className="code_output">{output}</div>
+        <div className="code_output" dangerouslySetInnerHTML={{ __html: output }}></div>
       </div>
 
-      <button onClick={handleRun}>RUN</button>
+      <button onClick={handleRun}>COMPILE</button>
     </>
   );
 }

@@ -18,6 +18,7 @@ a {
   color: #646cff;
   text-decoration: inherit;
 }
+
 a:hover {
   color: #535bf2;
 }
@@ -46,13 +47,16 @@ button {
   cursor: pointer;
   transition: border-color 0.25s;
 }
+
 button:hover {
   border-color: #646cff;
 }
+
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
+
 svg {
   display: none;
 }
@@ -62,14 +66,21 @@ svg {
   flex-direction: row;
   /* justify-content: space-between; */
 }
+
 .code_editor {
   width: 50%;
+  /* height: 20vh; */
   flex: 1;
 }
+
 .code_output {
   flex: 1;
   width: 50%;
+
+  /* height: 20vh; */
   height: inherit;
+  max-height: inherit;
+  overflow: auto;
   background-color: #1e1e1e;
   text-align: left;
   color: white;
