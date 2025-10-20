@@ -115,3 +115,7 @@ p {
   display: flex;
   justify-content: space-between;
 }
+
+.error_message {
+  color: red;
+}

@@ -29,14 +29,18 @@ function App() {
 		const response = await fetch(API_URL, tempOptions).then((resp) =>
 			resp?.json()
 		);
-		console.log(response);
-		setOutput(response?.stdout?.replaceAll('\n', '<br>'));
+		if (response?.exception) {
+			let exceptionMessage = `<span class='error_message'>${response?.exception}</span>`
+			exceptionMessage.replaceAll('\n', '<br>')
+			setOutput(exceptionMessage)
+		} else {
+			setOutput(response?.stdout?.replaceAll('\n', '<br>'));
+		}
 		setLoading(false)
 	};
 
 	const handleLanguageChange = (e) => {
 		const { value } = e.target;
-		console.log(value)
 		setLanguage(value)
 	}
 	return (

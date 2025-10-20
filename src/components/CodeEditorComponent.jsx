@@ -6,18 +6,13 @@ const CodeEditorComponent = ({
     output,
     handleChange,
 }) => {
-
-    useEffect(() => {
-        console.debug('code editor reloading...')
-    }, [language])
-
-
     return (
         <>
             <div className="main_container">
                 <div className="code_editor">
                     <CodeiumEditor
                         language={language}
+                        key={language}
                         className='codeium_editor'
                         onAutocomplete={false}
                         theme="vs-dark"
@@ -26,7 +21,10 @@ const CodeEditorComponent = ({
                         onChange={handleChange}
                     />
                 </div>
-                <div className="code_output" dangerouslySetInnerHTML={{ __html: output }}></div>
+                <div
+                    className="code_output"
+                    dangerouslySetInnerHTML={{ __html: output }}>
+                </div>
             </div>
         </>
     )

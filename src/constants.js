@@ -14,4 +14,4 @@ export const LANGUAGES = [
   { label: 'JavsScript', value: 'javascript' }
 ]
 
-export const DEFAULT_LANGUAGE = 'python'
+export const DEFAULT_LANGUAGE = 'javascript'
