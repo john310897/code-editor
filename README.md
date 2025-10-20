@@ -19,11 +19,11 @@ This is a web-based code compiler that allows users to write, compile, and execu
 
 ### Successful Compilation (JavaScript)
 
-![Alt text](<Screenshot 2025-10-20 1.png>)
+![Alt text](<1.png>)
 
 ### Error Handleing (JavaScript)
 
-![Alt text](<Screenshot 2025-10-20 2.png>)
+![Alt text](<2.png>)
 
 ## 🛠️ Tech Stack
 
