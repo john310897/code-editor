@@ -76,6 +76,7 @@ svg {
   display: flex;
   flex-direction: row;
   height: 80vh;
+  flex-wrap: wrap;
 }
 
 .code_editor {
@@ -114,6 +115,7 @@ p {
 .code_control_options {
   width: 50%;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
 }
 

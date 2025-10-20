@@ -1,16 +1,49 @@
-# React + Vite
+<h2 align="center" style="color:#CD7F32;">ONLINE CODE EDITOR</h2>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 🚀 Overview
 
-Currently, two official plugins are available:
+This is a web-based code compiler that allows users to write, compile, and execute code directly in the browser. It currently supports JavaScript and Python, with plans to expand to more languages. 
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+ The project integrates:
+ - Codeium for intelligent code autocompletion.
+ - OneCompiler API for compiling and executing code.
 
-## React Compiler
+## 🧰 Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- ✅ Language selection (JavaScript, Python)
+- 🧠 Code autocompletion via Codeium
+- 🐞 Syntax and runtime error display
+- 📤 Output window for compiled code
 
-## Expanding the ESLint configuration
+## 🖼️ Screenshots
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Successful Compilation (JavaScript)
+
+![Alt text](<Screenshot 2025-10-20 134102.png>)
+
+### Error Handleing (JavaScript)
+
+![Alt text](<Screenshot 2025-10-20 134134.png>)
+
+## 🛠️ Tech Stack
+
+- **Frontend**: React (v19.2.0)
+- **Autocomplete**: [Codeium Editor](https://www.npmjs.com/package/@codeium/react-code-editor) npm package
+- **Compiler**: OneCompiler (free tire)
+
+## 📦 Installation
+
+```bash
+git clone https://github.com/john310897/code-editor.git
+cd code-editor
+npm install
+npm start 
+
+```
+
+## 📄 Usage
+
+1. Select a language from the dropdown.
+2. Write your code in the editor.
+3. Click compile to run the code.
+4. View output or errors in the output window
