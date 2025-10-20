@@ -1,50 +1,61 @@
 import { useState } from 'react';
 import './App.css';
-import { CodeiumEditor } from '@codeium/react-code-editor';
-import { API_URL, OPTIONS } from './constants';
+import { API_URL, DEFAULT_LANGUAGE, OPTIONS } from './constants';
+import CodeEditorComponent from './components/CodeEditorComponent';
+import CodeEditorControlsComponent from './components/CodeEditorControlsComponent';
 
 function App() {
-  const [count, setCount] = useState(0);
-  const [code, setCode] = useState(null);
-  const [output, setOutput] = useState(null);
+	const [code, setCode] = useState(null);
+	const [output, setOutput] = useState(null);
+	const [language, setLanguage] = useState(DEFAULT_LANGUAGE)
+	const [loading, setLoading] = useState(false)
 
-  const handleChange = (value) => {
-    setCode(value);
-  };
+	const handleChange = (value) => {
+		setCode(value);
+	};
 
-  const handleRun = async () => {
-    setOutput(null)
-    const tempOptions = { ...OPTIONS };
-    tempOptions.body.files = [
-      {
-        name: 'index.py',
-        content: code,
-      },
-    ];
-    tempOptions.body = JSON.stringify(tempOptions.body);
-    const response = await fetch(API_URL, tempOptions).then((resp) =>
-      resp?.json()
-    );
-    console.log(response);
-    setOutput(response?.stdout?.replaceAll('\n', '<br/>'));
-  };
-  return (
-    <>
-      <div className="main_container">
-        <div className="code_editor">
-          <CodeiumEditor
-            language="python"
-            onAutocomplete={false}
-            theme="vs-dark"
-            onChange={handleChange}
-          />
-        </div>
-        <div className="code_output" dangerouslySetInnerHTML={{ __html: output }}></div>
-      </div>
+	const handleRun = async () => {
+		setOutput(null)
+		setLoading(true)
+		const tempOptions = { ...OPTIONS };
+		tempOptions.body.files = [
+			{
+				name: 'index.py',
+				content: code,
+			},
+		];
+		tempOptions.body.language = language
+		tempOptions.body = JSON.stringify(tempOptions.body);
+		const response = await fetch(API_URL, tempOptions).then((resp) =>
+			resp?.json()
+		);
+		console.log(response);
+		setOutput(response?.stdout?.replaceAll('\n', '<br>'));
+		setLoading(false)
+	};
 
-      <button onClick={handleRun}>COMPILE</button>
-    </>
-  );
+	const handleLanguageChange = (e) => {
+		const { value } = e.target;
+		console.log(value)
+		setLanguage(value)
+	}
+	return (
+		<>
+			<div className='container'>
+				<CodeEditorControlsComponent
+					handleLanguageChange={handleLanguageChange}
+					handleRun={handleRun}
+					language={language}
+					loading={loading}
+				/>
+				<CodeEditorComponent
+					language={language}
+					output={output}
+					handleChange={handleChange}
+				/>
+			</div>
+		</>
+	);
 }
 
 export default App;

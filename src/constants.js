@@ -7,14 +7,11 @@ export const OPTIONS = {
     'Content-Type': 'application/json',
   },
   body: {
-    language: 'python',
-    stdin: 'Peter',
-    files: [
-      {
-        name: 'index.py',
-        content:
-          "import sys\nname = sys.stdin.readline()\nprint('Hello '+ name)",
-      },
-    ],
   },
 };
+export const LANGUAGES = [
+  { label: 'Python', value: 'python' },
+  { label: 'JavsScript', value: 'javascript' }
+]
+
+export const DEFAULT_LANGUAGE = 'python'
