@@ -1,20 +1,22 @@
-const express=require('express')
-const cors=require('cors')
-const app=express()
+const express = require('express')
+const cors = require('cors')
+const app = express()
 
-app.use(cors({
-  origin: 'https://verbose-succotash-p6grp74g5v53rp55-5173.app.github.dev',
-  methods: ['GET', 'POST'],
-  credentials: true
-}));
+const corsOptions={
+ origin: 'https://verbose-succotash-p6grp74g5v53rp55-5173.app.github.dev',
+    methods: ['GET', 'PUT', 'POST', 'DELETE', 'OPTIONS'],
+    allowHeaders: ['Content-type', 'Authorization', 'Access-Control-Allow-Origin'],
+    credentials: true
+}
+app.use(cors(corsOptions));
 
 
-app.use('/',(req,res)=>{
+app.use('/', (req, res) => {
     res.send({
-        message:'this is the message from the server'
+        message: 'this is the message from the server'
     })
 })
 
-app.listen(3001,()=>{
+app.listen(3001, () => {
     console.log('server is running on port 3001')
 })

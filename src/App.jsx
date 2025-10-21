@@ -16,7 +16,7 @@ function App() {
 
 	const getOneCompiler = async () => {
 		const response = await fetch(SERVER_API_URL)
-		console.log(response)
+		console.log("-------------------------------------------",response)
 	}
 
 	const handleChange = (value) => {
