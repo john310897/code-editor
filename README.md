@@ -4,6 +4,8 @@
 
 This is a web-based code compiler that allows users to write, compile, and execute code directly in the browser. It currently supports JavaScript and Python, with plans to expand to more languages. 
 
+[online code editor](https://john310897.github.io/code-editor/)
+
  The project integrates:
  - Codeium for intelligent code autocompletion.
  - OneCompiler API for compiling and executing code.
