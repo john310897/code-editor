@@ -7,16 +7,18 @@ import CodeEditorControlsComponent from './components/CodeEditorControlsComponen
 function App() {
 	const [code, setCode] = useState(null);
 	const [output, setOutput] = useState(null);
-	const [language, setLanguage] = useState(DEFAULT_LANGUAGE)
-	const [loading, setLoading] = useState(false)
+	const [language, setLanguage] = useState(DEFAULT_LANGUAGE);
+	const [loading, setLoading] = useState(false);
+	const [apiKey,setApiKey]=useState(null)
 
 	useEffect(() => {
 		getOneCompiler()
 	}, [])
 
 	const getOneCompiler = async () => {
-		const response = await fetch(SERVER_API_URL)
-		console.log("-------------------------------------------",response)
+		const response = await fetch(SERVER_API_URL,{credentials:'include'}).then(resp=>resp?.json())
+		console.log(response)
+		setApiKey(response?.apiKey)
 	}
 
 	const handleChange = (value) => {
@@ -35,6 +37,7 @@ function App() {
 		];
 		tempOptions.body.language = language
 		tempOptions.body = JSON.stringify(tempOptions.body);
+		tempOptions.headers['x-rapidapi-key']=apiKey
 		const response = await fetch(API_URL, tempOptions).then((resp) =>
 			resp?.json()
 		);

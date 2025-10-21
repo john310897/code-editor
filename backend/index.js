@@ -8,11 +8,13 @@ const corsOptions={
     allowHeaders: ['Content-type', 'Authorization', 'Access-Control-Allow-Origin'],
     credentials: true
 }
+
 app.use(cors(corsOptions));
 
 
 app.use('/', (req, res) => {
     res.send({
+        apiKey:process.env.API_KEY,
         message: 'this is the message from the server'
     })
 })
