@@ -1,6 +1,6 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
-import { API_URL, DEFAULT_LANGUAGE, OPTIONS } from './constants';
+import { API_URL, DEFAULT_LANGUAGE, OPTIONS, SERVER_API_URL } from './constants';
 import CodeEditorComponent from './components/CodeEditorComponent';
 import CodeEditorControlsComponent from './components/CodeEditorControlsComponent';
 
@@ -9,6 +9,15 @@ function App() {
 	const [output, setOutput] = useState(null);
 	const [language, setLanguage] = useState(DEFAULT_LANGUAGE)
 	const [loading, setLoading] = useState(false)
+
+	useEffect(() => {
+		getOneCompiler()
+	}, [])
+
+	const getOneCompiler = async () => {
+		const response = await fetch(SERVER_API_URL)
+		console.log(response)
+	}
 
 	const handleChange = (value) => {
 		setCode(value);
