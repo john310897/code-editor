@@ -3,7 +3,7 @@ const cors = require('cors')
 const app = express()
 
 const corsOptions={
- origin: 'https://verbose-succotash-p6grp74g5v53rp55-5173.app.github.dev',
+ origin: 'https://john310897.github.io',
     methods: ['GET', 'PUT', 'POST', 'DELETE', 'OPTIONS'],
     allowHeaders: ['Content-type', 'Authorization', 'Access-Control-Allow-Origin'],
     credentials: true
