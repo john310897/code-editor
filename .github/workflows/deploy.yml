@@ -1,0 +1,15 @@
+name:'deploy-online-code-editor'
+run-name:${{github.actor}} is deploying the code
+on: [push]
+jobs:
+  checks-bat-version:
+    runs-on:ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      with:
+        node-version:'20'
+      - run: npm install --legacy-peer-deps
+      - run: npm version patch
+      - run: npm run build
+      - run: npx gh-pages-clean -d dist
+      - run: npx gh-pages -d dist
