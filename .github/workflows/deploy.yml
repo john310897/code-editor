@@ -1,15 +1,32 @@
-name:'deploy-online-code-editor'
-run-name:${{github.actor}} is deploying the code
-on: [push]
+name: deploy-online-code-editor
+
+run-name: ${{ github.actor }} is deploying the code
+
+on:
+  push:
+    branches:
+      - main  # or 'master' or whichever branch you want to trigger deployment
+
 jobs:
-  checks-bat-version:
-    runs-on:ubuntu-latest
+  deploy:
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
-      with:
-        node-version:'20'
-      - run: npm install --legacy-peer-deps
-      - run: npm version patch
-      - run: npm run build
-      - run: npx gh-pages-clean -d dist
-      - run: npx gh-pages -d dist
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@latest
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm install --legacy-peer-deps
+
+      - name: Build project
+        run: npm run build
+
+      - name: Clean gh-pages old puild
+        run: npx gh-pages-clean -d dist
+
+      - name: Deploy to GitHub Pages
+        run: npx gh-pages -d dist
