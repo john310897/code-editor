@@ -13,13 +13,13 @@ const corsOptions={
 app.use(cors(corsOptions));
 
 
-app.use('/', (req, res) => {
+app.get('/', (req, res) => {
     res.send({
         message: 'this is the message from the server'
     })
 })
 
-app.get('/one-compiler-api',(req,res)=>{
+app.get('/onecompilerapi',(req,res)=>{
     res.send({
         apiKey:process.env.API_KEY
     })
