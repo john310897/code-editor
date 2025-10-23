@@ -1,5 +1,5 @@
 env:
- GH_TOKEN:${{secrets.GITHUB_TOKEN}}
+ GH_TOKEN:${{secrets.GIT_TOCKEN}}
 
 name: deploy-online-code-editor
 
