@@ -1,5 +1,5 @@
 export const API_URL = 'https://onecompiler-apis.p.rapidapi.com/api/v1/run';
-export const SERVER_API_URL='https://code-editor-ybju.onrender.com/'
+export const SERVER_API_URL='https://code-editor-ybju.onrender.com/onecompilerapi'
 export const OPTIONS = {
   method: 'POST',
   headers: {
