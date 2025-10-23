@@ -1,5 +1,4 @@
 import { CodeiumEditor } from '@codeium/react-code-editor';
-import { useEffect } from 'react';
 
 const CodeEditorComponent = ({
     language,

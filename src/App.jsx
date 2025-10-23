@@ -17,7 +17,6 @@ function App() {
 
 	const getOneCompiler = async () => {
 		const response = await fetch(SERVER_API_URL,{credentials:'include'}).then(resp=>resp?.json())
-		console.log(response)
 		setApiKey(response?.apiKey)
 	}
 
