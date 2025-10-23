@@ -19,7 +19,7 @@ app.use('/', (req, res) => {
     })
 })
 
-app.use('/one-compiler-api',(req,res)=>{
+app.get('/one-compiler-api',(req,res)=>{
     res.send({
         apiKey:process.env.API_KEY
     })
