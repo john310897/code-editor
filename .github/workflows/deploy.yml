@@ -1,6 +1,3 @@
-env:
- GH_TOKEN: ${{secrets.GIT_TOCKEN}}
-
 name: deploy-online-code-editor
 
 run-name: ${{ github.actor }} is deploying the code
@@ -13,6 +10,9 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    env:
+     GH_TOKEN: ${{ secrets.GH_TOKEN }}
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -28,7 +28,7 @@ jobs:
       - name: Build project
         run: npm run build
 
-      - name: Clean gh-pages old puild
+      - name: Clean gh-pages old build
         run: npx gh-pages-clean -d dist -r https://<GH_TOKEN>github.com/john310897/code-editor.git
 
       - name: Deploy to GitHub Pages
