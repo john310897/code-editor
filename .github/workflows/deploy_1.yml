@@ -11,7 +11,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     env:
-     GIT_TOKEN: ${{ secrets.GH_TOKEN }}
+     GH_TOKEN: ${{ secrets.GH_TOKEN }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -31,4 +31,4 @@ jobs:
         run: npx gh-pages-clean -d dist
 
       - name: Deploy to GitHub Pages
-        run: npx gh-pages -d dist
+        run: npx gh-pages -d dist -r https://$GH_TOKEN@github.com/john310897/code-editor.git
