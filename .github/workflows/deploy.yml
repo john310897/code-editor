@@ -31,4 +31,4 @@ jobs:
       #   run: npx gh-pages-clean -d dist -r https://${{ secrets.GIT_TOKEN }}github.com/john310897/code-editor.git
 
       - name: Deploy to GitHub Pages
-        run: npx gh-pages -d dist -r https://${{secrets.GIT_TOKEN}}@github.com/john310897/code-editor.git
+        run: npx gh-pages -d dist -r https://${{ secrets.GIT_TOKEN }}@github.com/john310897/code-editor.git
