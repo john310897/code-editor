@@ -28,6 +28,7 @@ function App() {
 		setOutput(null)
 		setLoading(true)
 		const tempOptions = { ...OPTIONS };
+		console.log("testing branches")
 		tempOptions.body.files = [
 			{
 				name: 'index.py',
